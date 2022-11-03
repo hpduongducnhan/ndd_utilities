@@ -1,0 +1,21 @@
+{
+    "folders": [
+        {
+            "name": "root",
+            "path": "./"
+        },
+        // {
+        //     "name": "voip_service",
+        //     "path": "./services/voip_service"
+        // },
+        // {
+        //     "name": "user_service",
+        //     "path": "./services/user_service"
+        // },
+
+    ],
+    "settings": {
+        "files.exclude": {
+        }
+    }
+}

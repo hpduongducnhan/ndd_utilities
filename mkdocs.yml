@@ -1,0 +1,16 @@
+site_name: My Docs
+
+theme:
+  name: "material"
+
+nav:
+  - Home: index.md
+  - Tutorials: tutorials.md
+  # - Core: '*include ./docs/core/*/mkdocs.yml'
+  # - Services: '*include ./services/*/mkdocs.yml'
+
+plugins:
+  - search
+  - mkdocstrings
+  - autorefs
+  - monorepo

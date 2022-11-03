@@ -1,0 +1,97 @@
+[tool.poetry]
+name = "source"
+version = "0.1.0"
+description = ""
+authors = ["NhanDD <hp.duongducnhan@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "<3.11,>=3.7"
+bump2version = "^1.0.1"
+tox = "^3.27.0"
+mkdocs = "^1.4.2"
+mkdocstrings = {extras = ["python"], version = "^0.19.0"}
+mkdocs-material = "^8.5.8"
+mkdocs-autorefs = "^0.4.1"
+mkdocs-monorepo-plugin = "^1.0.4"
+pre-commit = "^2.20.0"
+pip = "^22.3"
+invoke = "^1.7.3"
+nox = "^2022.8.7"
+pyinstaller = "^5.6.2"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+mypy = "^0.982"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+welcome = 'source.console.welcome:main'
+
+
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["modern_python_boilerplate"]
+
+[tool.coverage.report]
+fail_under = 100
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if self.debug",
+  "if settings.DEBUG:",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if 0:",
+  "if __name__ == __main__:"
+]
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+
+
+
+[tool.flakehell]
+format = "grouped"
+max_line_length = 120
+show_source = true
+docstring-convention = "google"
+extended_default_ignore = []
+
+[tool.flakehell.plugins]
+pyflakes = ["+*"]
+pycodestyle = ["+*"]
+mccabe = ["+*"]
+"flake8-*" = ["+*"]
+darglint = ["+*"]
+
+[tool.flakehell.exceptions."tests/"]
+flake8-bandit = ["-S101"]
+
+
+
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 120
+known_third_party = ["invoke", "nox"]
+
+
+
+
+[tool.black]
+line-length = 120
+target-version = ["py37"]
